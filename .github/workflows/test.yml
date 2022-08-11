@@ -9,5 +9,4 @@ jobs:
   steps:
   - uses: actions/checkout@v1
   - name: script
-    run: naisdevice-nav-mac-up.sh
-    shell: bash
+    run: bash ${GITHUB_WORKSPACE}/naisdevice-nav-mac-up.sh
