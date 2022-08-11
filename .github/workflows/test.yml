@@ -2,7 +2,7 @@ name: Build and deploy
 on:
   push:
     branches:
-    - main
+    - test-runner
 jobs:
  run:
   runs-on: macos-12
