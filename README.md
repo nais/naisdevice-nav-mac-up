@@ -21,4 +21,6 @@ in your dock where you will find links to internal web apps.
 - Any questions you might have can be directed to the #naisdevice
 channel on Slack.
 
-TODO: Test on fresh install
+TODO: Test on fresh install.
+
+TODO: Create signed release.
