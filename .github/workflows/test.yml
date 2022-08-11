@@ -1,0 +1,13 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+    - main
+jobs:
+ run:
+  runs-on: macos-12
+  steps:
+  - uses: actions/checkout@v1
+  - name: script
+    run: naisdevice-nav-mac-up.sh
+    shell: bash
