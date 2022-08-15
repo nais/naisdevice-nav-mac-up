@@ -12,14 +12,14 @@ install-brew() {
 		sudo xcode-select --install || true
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-		# check platform and add Brew to user PATH (Assuming default macOS `zsh`)
-		if [[ $(uname -m) == 'arm64' ]]; then
-			echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-			eval "$(/opt/homebrew/bin/brew shellenv)"
-		else
-			echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
-			eval "$(/usr/local/bin/brew shellenv)"
-		fi
+			# check platform and add Brew to user PATH (Assuming default macOS `zsh`)
+			if [[ $(uname -m) == 'arm64' ]]; then
+				echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+				eval "$(/opt/homebrew/bin/brew shellenv)"
+			else
+				echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
+				eval "$(/usr/local/bin/brew shellenv)"
+			fi
 
 		brew doctor
 
