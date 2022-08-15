@@ -1,45 +1,57 @@
 #!/bin/bash
 # shellcheck disable=SC2154
-install-brew(){
-read -p "Do you want to install \"Homebrew\"? (y/n) " yn
+# shellcheck disable=SC2016
+# shellcheck disable=SC2162
 
-case $yn in
-[yY])
-	echo "lets's go"
-	sudo xcode-select --install || true
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+install-brew() {
+	read -p "Do you want to install \"Homebrew\"? (y/n) " yn
 
-	brew doctor
+	case $yn in
+	[yY])
+		echo "lets's go"
+		sudo xcode-select --install || true
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-	echo "Brewing NAV taps"
+		# check platform and add Brew to user PATH (Assuming default macOS `zsh`)
+		if [[ $(uname -m) == 'arm64' ]]; then
+			echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+			eval "$(/opt/homebrew/bin/brew shellenv)"
+		else
+			echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
+			eval "$(/usr/local/bin/brew shellenv)"
+		fi
 
-	brew tap nais/tap
+		brew doctor
 
-	IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat nav-taps))'
+		echo "Brewing NAV taps"
 
-	for t in "${taps[@]}"; do
-		echo "## Brewing $t"
-		/opt/homebrew/bin/brew install "$t"
-		wait
-	done
+		brew tap nais/tap
 
-	echo "Brewing personal taps"
+		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat nav-taps))'
 
-	IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat personal-taps))'
+		for t in "${taps[@]}"; do
+			echo "## Brewing $t"
+			/opt/homebrew/bin/brew install "$t"
+			wait
+		done
 
-	for t in "${taps[@]}"; do
-		echo "## Brewing $t"
-		/opt/homebrew/bin/brew install "$t"
-		wait
-	done
+		echo "Brewing personal taps"
 
-	echo "brewing done!"
+		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat personal-taps))'
 
-	;;
-[nN])
-	echo "skipping brew..."
-	;;
-*) echo invalid response ;;
-esac
+		for t in "${taps[@]}"; do
+			echo "## Brewing $t"
+			/opt/homebrew/bin/brew install "$t"
+			wait
+		done
+
+		echo "brewing done!"
+
+		;;
+	[nN])
+		echo "skipping brew..."
+		;;
+	*) echo invalid response ;;
+	esac
 }
 install-brew
