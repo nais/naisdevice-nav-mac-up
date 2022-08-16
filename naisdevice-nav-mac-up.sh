@@ -45,6 +45,9 @@ source brew.sh
 # Copy ".webloc file to disk and add to Dock"
 source nav-webapps.sh
 
+# Add all root-certs
+source add-root-certs.sh
+
 cat <<'NEXTSTEP' 
 Slack will now open.
 Log on with your NAV credentials and when logged in
