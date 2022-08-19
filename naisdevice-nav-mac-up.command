@@ -62,8 +62,7 @@ Also.. you should reboot sometime soon. Stuff will work smoother that way.
 GLHF
 NEXTSTEP
 
-sleep 5
-
-open -a "Google Chrome" https://webapps.nav.no
+open -a "Slack"
+open https://webapps.nav.no
 
 exit 0
