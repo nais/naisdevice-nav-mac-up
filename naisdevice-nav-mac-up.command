@@ -37,16 +37,16 @@ echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
 
 # Offer Chrome
-source scripts/chrome.sh
+source "$PWD"/scripts/chrome.sh
 
 # Offer Homebrew and install some stuff
-source scripts/brew.sh
+source "$PWD"/scripts/brew.sh
 
 # Copy ".webloc file to disk and add to Dock"
-source scripts/nav-webapps.sh
+source "$PWD"/scripts/nav-webapps.sh
 
 # Add all root-certs
-source scripts/add-root-certs.sh
+source "$PWD"/scripts/add-root-certs.sh
 
 cat <<'NEXTSTEP' 
 Slack will now open.

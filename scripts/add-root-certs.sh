@@ -1,7 +1,7 @@
 #!/bin/bash
 
 add-certs(){
-certs="certs/*"
+certs="../certs/*"
 
 for c in $certs
 do
