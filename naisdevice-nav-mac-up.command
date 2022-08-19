@@ -8,6 +8,8 @@ cat <<'NAISDEVICE'
 
 NAISDEVICE
 
+cd "$(dirname "$(readlink -f "$0")")" || exit
+
 exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
 
 source scripts/root-test.sh
