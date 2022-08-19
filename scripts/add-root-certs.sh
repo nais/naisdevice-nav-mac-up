@@ -2,7 +2,7 @@
 
 
 add-certs(){
-CERTS="../certs/*.cer"
+CERTS="certs/*.cer"
 for f in $CERTS
 do
  echo "Installing $f root-cert..."
