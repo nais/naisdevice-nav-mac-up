@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+echo "ROOTCERTS ########  $PWD"
+
 add-certs(){
 CERTS="../certs/*.cer"
 for f in $CERTS

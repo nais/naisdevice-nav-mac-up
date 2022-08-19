@@ -2,6 +2,8 @@
 
 user=$(whoami)
 
+
+echo "WEBAPPS ########  $PWD"
 cat <<'WEBAPPS' 
 NAV WebApps shortcut has been added to ~/Documents.
 Keep in mind that enrollment must be complete before you
