@@ -38,6 +38,8 @@ USAGE
 echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
 
+source user-choices.sh
+
 # Offer Chrome
 source scripts/chrome.sh
 
