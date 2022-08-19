@@ -8,8 +8,6 @@ install-brew() {
 
 	case $yn in
 	[yY])
-		echo "lets's go"
-		sudo xcode-select --install || true
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 			# check platform and add Brew to user PATH (Assuming default macOS `zsh`)

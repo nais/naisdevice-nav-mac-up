@@ -10,7 +10,7 @@ NAISDEVICE
 
 exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
 
-source root-test.sh
+source scripts/root-test.sh
 
 cat <<'USAGE' 
 "Usage: this script will install the bare essentials
@@ -37,16 +37,16 @@ echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
 
 # Offer Chrome
-source chrome.sh
+source scripts/chrome.sh
 
 # Offer Homebrew and install some stuff
-source brew.sh
+source scripts/brew.sh
 
 # Copy ".webloc file to disk and add to Dock"
-source nav-webapps.sh
+source scripts/nav-webapps.sh
 
 # Add all root-certs
-source add-root-certs.sh
+source scripts/add-root-certs.sh
 
 cat <<'NEXTSTEP' 
 Slack will now open.
