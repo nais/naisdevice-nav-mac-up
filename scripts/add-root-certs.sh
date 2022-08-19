@@ -1,12 +1,11 @@
 #!/bin/bash
 
 add-certs(){
-certs="certs/*"
-
-for c in $certs
+CERTS="../certs/*.cer"
+for f in $CERTS
 do
-   Adding "$c"
-   sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "$c"
+ echo "Installing $f root-cert..."
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "$f" 
 done
 }
 
