@@ -10,6 +10,4 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 done
 }
 
-echo "ROOTCERTS ########  $PWD"
-
 add-certs
