@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES="../certs/*.cer"
+FILES="/certs/*.cer"
 for f in $FILES
 do
  echo "Processing $f certificate..."

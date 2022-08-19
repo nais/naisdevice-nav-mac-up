@@ -62,6 +62,6 @@ NEXTSTEP
 
 sleep 5
 
-open -a "Slack"
+open -a "Google Chrome" https://webapps.nav.no
 
 exit 0

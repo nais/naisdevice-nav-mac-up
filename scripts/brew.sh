@@ -25,7 +25,7 @@ install-brew() {
 
 		brew tap nais/tap
 
-		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat ../config/nav-taps))'
+		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat config/nav-taps))'
 
 		for t in "${taps[@]}"; do
 			echo "## Brewing $t"
@@ -35,7 +35,7 @@ install-brew() {
 
 		echo "Brewing personal taps"
 
-		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat ../config/personal-taps))'
+		IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat config/personal-taps))'
 
 		for t in "${taps[@]}"; do
 			echo "## Brewing $t"
