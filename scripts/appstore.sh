@@ -1,7 +1,7 @@
 #!/bin/bash
 
 check-for-mas() {
-  if grep -oq 'mas' personal-taps; then
+  if grep -oq 'mas' ../config/personal-taps; then
     echo "check for appleID"
     check_for_id=$(defaults read MobileMeAccounts Accounts | grep "AccountID")
     if [[ ! "$check_for_id" = "" ]]; then
