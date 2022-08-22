@@ -39,6 +39,7 @@ echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
 
 source scripts/user-choices.sh
+source scripts/appstore.sh
 
 # Offer Chrome
 source scripts/chrome.sh
