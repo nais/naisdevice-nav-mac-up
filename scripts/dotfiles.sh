@@ -1,39 +1,27 @@
 #!/bin/bash
+# shellcheck disable=SC2154
 
-	read -p "Do you have a dotfiles repo you want to import? (y/n)" yn
+if [[ "$repo" = "install" ]]; then
+    get_repo_address() {
 
-	case $yn in
-	[yY])
+        echo What is your repo url?
+        read REPO_URL
 
+        response=$(curl --write-out '%{http_code}' --silent --output /dev/null "$REPO_URL")
+        if [[ "$response" = "200" ]]; then
+            echo "Looks OK i guess..moving on.."
+        else
+            echo "That's a bad address, try again"
+            get_repo_address
+        fi
 
-			echo What is your repo url?
-			read REPO_URL
+    }
 
-			response=$(curl --write-out '%{http_code}' --silent --output /dev/null "$REPO_URL")
-			if [[ "$response" = "200" ]]; then
-				echo "Looks OK i guess..moving on.."
-			else
-				echo "That's a bad address, try again"
-				get_repo_address
-			fi
+    get_repo_address
 
-		
-		dotfiles_folder=$(echo "$REPO_URL" | awk -F "/" '{print $NF}')
-		echo "$dotfiles_folder"
+    dotfiles_folder=$(echo "$REPO_URL" | awk -F "/" '{print $NF}')
 
-		git clone "$REPO_URL"
+    git clone "$REPO_URL"
+    echo "Your repo has been cloned $PWD/$dotfiles_folder"
 
-		IFS=$'\r\n' GLOBIGNORE='*' command eval 'dotfiles=($(find "$PWD/dotfiles/files" -maxdepth 1 -type f))'
-
-		for f in "${dotfiles[@]}"; do
-			echo "## adding symlink $f"
-		done
-
-		;;
-
-	\
-		[nN])
-		echo "skipping dotfiles..."
-		;;
-	*) echo invalid response ;;
-	esac
+fi

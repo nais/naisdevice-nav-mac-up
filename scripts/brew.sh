@@ -5,7 +5,7 @@
 
 if [[ "$homebrew" = "install" ]]; then
 
-	echo "fetching latest homebrew for your architecture"
+	echo "Fetching latest homebrew for your architecture"
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 

@@ -52,17 +52,6 @@ source scripts/nav-webapps.sh
 # Add all root-certs
 source scripts/add-root-certs.sh
 
-cat <<'NEXTSTEP' 
-Slack will now open.
-Log on with your NAV credentials and when logged in
-paste the following command in any message input field:
-`/msg @Kolide installers`
-
-Also.. you should reboot sometime soon. Stuff will work smoother that way.
-GLHF
-NEXTSTEP
-
-open -a "Slack"
-open https://webapps.nav.no
+sudo reboot
 
 exit 0

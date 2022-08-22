@@ -11,3 +11,8 @@ if read -p "Do you want install homebrew? (y/n)" \
     confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     homebrew=install
 fi
+
+if read -p "Do you have a dotfiles repo you want to clone? (y/n)" \
+    confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    repo=install
+    fi
