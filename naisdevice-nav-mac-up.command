@@ -38,6 +38,7 @@ USAGE
 echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
 
+source scripts/add-root-certs.sh
 source scripts/user-choices.sh
 source scripts/appstore.sh
 
@@ -53,6 +54,6 @@ source scripts/nav-webapps.sh
 # Add all root-certs
 source scripts/add-root-certs.sh
 
-sudo reboot
+
 
 exit 0

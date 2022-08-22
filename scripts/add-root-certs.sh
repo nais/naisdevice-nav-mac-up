@@ -1,8 +1,13 @@
 #!/bin/bash
 
-echo "You must open Sytem Preferences/Profiles to install \
-NAV & naisdevice system root certificates.\
-The script will continue when this is done."
+echo \
+"##########################################\
+You must open Sytem Preferences/Profiles\
+to install NAV & naisdevice system root \
+certificates.\
+
+The script will continue when this is done.\
+###########################################"
 
 open certs/naisdevice-nav-root.mobileconfig
 
