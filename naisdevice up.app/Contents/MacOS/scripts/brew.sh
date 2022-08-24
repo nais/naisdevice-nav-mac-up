@@ -3,7 +3,7 @@
 # shellcheck disable=SC2016
 # shellcheck disable=SC2162
 
-if [[ "$homebrew" = "install" ]]; then
+if [[ "$homebrew" = "1" ]]; then
 
 	echo "Fetching latest homebrew for your architecture"
 
@@ -24,8 +24,7 @@ if [[ "$homebrew" = "install" ]]; then
 
 	brew tap nais/tap
 
-	IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat config/nav-taps))'
-
+	taps=( naisdevice slack zoom )
 	for t in "${taps[@]}"; do
 		echo "## Brewing $t"
 		/opt/homebrew/bin/brew install "$t"
@@ -34,9 +33,7 @@ if [[ "$homebrew" = "install" ]]; then
 
 	echo "Brewing personal taps"
 
-	IFS=$'\r\n' GLOBIGNORE='*' command eval 'taps=($(cat config/personal-taps))'
-
-	for t in "${taps[@]}"; do
+	for t in "${personaltaps[@]}"; do
 		echo "## Brewing $t"
 		/opt/homebrew/bin/brew install "$t"
 		wait

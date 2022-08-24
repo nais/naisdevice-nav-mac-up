@@ -1,10 +1,10 @@
 #!/bin/bash
 # shellcheck disable=SC2154
 
-if [[ "$repo" = "install" ]]; then
+if [[ "$chk5" = "1" ]]; then
     get_repo_address() {
 
-        echo What is your repo url?
+        echo What is your dotfiles repo url?
         read REPO_URL
 
         response=$(curl --write-out '%{http_code}' --silent --output /dev/null "$REPO_URL")
