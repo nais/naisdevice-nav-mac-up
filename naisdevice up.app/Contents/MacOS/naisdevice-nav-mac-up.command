@@ -19,7 +19,8 @@ sudo echo "\
 *********************************************
 Elevation achieved
 ---------------------------------------------"
-
+afplay ../Resources/elevator.mp3 &
+killmusic="$!"
 source scaffolding/add-root-certs.sh
 source scaffolding/nav-webapps.sh
 source scaffolding/brew.sh
@@ -46,5 +47,7 @@ _____________________________________________
 ---------------------------------------------
 ---------------------------------------------"
 NAISDEVICE
+
+kill "$killmusic"
 
 exit 0
