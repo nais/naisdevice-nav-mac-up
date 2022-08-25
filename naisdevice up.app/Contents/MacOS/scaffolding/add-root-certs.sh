@@ -14,3 +14,7 @@ open -b com.apple.systempreferences /System/Library/PreferencePanes/Profiles.pre
 while ! sudo profiles -L | grep -q "AD9ACDCC-3BFD-463C-A589-0A94BC0B463D"; do
   sleep 3
 done
+
+sysprefs=$(pgrep "System Preferences")
+
+kill "$sysprefs"
