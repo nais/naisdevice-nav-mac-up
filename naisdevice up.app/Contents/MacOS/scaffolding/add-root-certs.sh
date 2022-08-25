@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "\
-*********************************************
+---------------------------------------------
 You must install NAV & naisdevice system 
 root certificates in System Preferences.
 
