@@ -1,0 +1,29 @@
+#!/bin/bash
+# shellcheck disable=SC2154
+# shellcheck disable=SC1111
+       
+cd "$(dirname "$0")" || exit
+
+exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
+
+source scaffolding/connectivity.sh
+
+source scaffolding/user-choices.sh
+
+#if [[ "$repo" = "1" ]]; then
+#    source get-repo-url.sh
+#    if [[ "$cb" = "1" ]]; then
+#        exit 0
+#    fi
+#fi
+
+# Check if user has some taps of their own
+if [[ "$brew" = "1" ]]; then
+
+    source scaffolding/taps.sh
+    if [[ "$cb" = "1" ]]; then
+        exit 0
+    fi
+fi
+
+open naisdevice-nav-mac-up.command
