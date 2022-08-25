@@ -3,67 +3,25 @@
 # shellcheck disable=SC1111
 # Include pashua.sh to be able to use the 2 functions defined in that file
 
-cd "$(dirname "$0")"|| exit
+cd "$(dirname "$0")" || exit
 
 exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
 
-# Include pashua.sh to be able to use the 2 functions defined in that file
-source pashua.sh
+source user-choices.sh
 
-# Define what the dialog should be like
-# Take a look at Pashua's Readme file for more info on the syntax
+#if [[ "$repo" = "1" ]]; then
+#    source get-repo-url.sh
+#    if [[ "$cb" = "1" ]]; then
+#        exit 0
+#    fi
+#fi
 
-conf="
-# Set window title
-*.title = naisdevice up
-
-txt.type = text
-txt.default = \"naisdevice up\" is a simple utility to get you started setting up you developer workstation. Homebrew will be installed, as well as a few apps you are going to need. Other features are optional. ROOT certificates will also be added.[return](NOTE: A terminal will open an there are several steps that require user interaction)
-txt.height = 276
-txt.width = 310
-txt.x = 0
-txt.y = 180
-
-# User choices
-chk1.type = checkbox
-chk1.label = Homebrew
-chk1.default = 1
-chk1.disabled = 1
-chk1.rely = -10
-
-chk2.type = checkbox
-chk2.label = NAV & NAIS ROOT Certs
-chk2.default = 1
-chk2.disabled = 1
-chk2.rely = -10
-
-chk3.type = checkbox
-chk3.label = NAV Webapps
-chk3.default = 1
-chk3.disabled = 1
-chk3.rely = -10
-
-chk4.type = checkbox
-chk4.label = Google Chrome
-chk4.default = 0
-chk4.rely = -10
-
-chk6.type = checkbox
-chk6.label = Add Brew taps
-chk6.rely = -10
-
-db.type = defaultbutton
-db.tooltip = This is an element of type “defaultbutton”
-"
-
-    conf="$conf
-          img.type = image
-          img.x = 80
-          img.y = 300
-          img.maxwidth = 150
-          img.tooltip = This is an element of type “image”
-          img.path = ../Resources/naisdevice-up.png"
-
-pashua_run "$conf"
+# Check if user has some taps of their own
+if [[ "$brew" = "1" ]]; then
+    source taps.sh
+    if [[ "$cb" = "1" ]]; then
+        exit 0
+    fi
+fi
 
 open naisdevice-nav-mac-up.command

@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.example.pashua-doubleclickable-example</string><!-- Should contain a reverse-URL identifier to your site -->
+	<string>io.nais.naisdevice.up</string><!-- Should contain a reverse-URL identifier to your site -->
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>

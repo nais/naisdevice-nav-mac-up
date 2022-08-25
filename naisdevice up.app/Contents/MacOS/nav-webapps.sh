@@ -3,7 +3,8 @@
 user=$(whoami)
 
 cat <<'WEBAPPS' 
-NAV WebApps shortcut has been added to ~/Documents.
+NAV WebApps shortcut has been added to ~/Documents and to
+your Dock.
 Keep in mind that enrollment must be complete before you
 are granted access to many of the apps that are featured 
 there.
