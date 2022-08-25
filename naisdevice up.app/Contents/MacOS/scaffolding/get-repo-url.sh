@@ -35,7 +35,10 @@ pashua_run "$conf" ../Pashua
 
 export clone_target="$repo_url"
 
-echo "Will clone: $clone_target"
+echo "\
+*********************************************
+Will clone: $clone_target
+---------------------------------------------"
 echo clone_target="$clone_target" >> vars
 }
 

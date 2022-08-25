@@ -1,8 +1,6 @@
 #!/bin/bash
 # shellcheck disable=SC2154
-
-# Include pashua.sh to be able to use the 2 functions defined in that file
-echo "$PWD"
+# shellcheck disable=SC1091
 
 source pashua.sh
 

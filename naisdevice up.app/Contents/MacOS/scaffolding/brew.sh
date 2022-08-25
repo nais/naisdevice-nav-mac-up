@@ -8,8 +8,10 @@ source vars
 
 if ! brew -v &> /dev/null
 then
-echo "Fetching latest homebrew for your architecture"
-
+echo "\
+*********************************************
+Getting latest homebrew for your architecture
+---------------------------------------------"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # check platform and add Brew to user PATH (Assuming default macOS `zsh`)
@@ -24,29 +26,45 @@ fi
 
 brew doctor
 
-echo "Brewing NAV taps"
+echo "\
+*********************************************
+Brewing NAV taps
+---------------------------------------------"
 
 brew tap nais/tap
 
 taps=(naisdevice slack zoom)
 for t in "${taps[@]}"; do
-	echo "## Brewing $t"
+echo "\
+Brewing $t
+---------------------------------------------"
 	/opt/homebrew/bin/brew install "$t"
 done
 
-personaltaps=$(cat taps)
+source taps
 
 if [[ "$personaltaps" != "" ]]; then
-	echo "Brewing personal taps"
+echo "\
+*********************************************
+Brewing personal taps
+---------------------------------------------"
 
-	for t in "${personaltaps[@]}"; do
-		echo "## Brewing $t"
-		/opt/homebrew/bin/brew install "$t"
-		wait
-	done
+for t in "${personaltaps[@]}"; do
+echo "\
+Brewing $t
+---------------------------------------------"
+/opt/homebrew/bin/brew install "$t"
+wait
+done
 
-	echo "brewing done!"
+echo "\
+*********************************************
+Personal brewing done!
+---------------------------------------------"
 else
 
-	echo "skipping personal brewing..."
+echo "\
+*********************************************
+Skipping personal brewing...
+---------------------------------------------"
 fi
