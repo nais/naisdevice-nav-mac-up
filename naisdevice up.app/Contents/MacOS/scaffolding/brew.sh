@@ -26,6 +26,8 @@ fi
 
 brew doctor
 
+sudo echo "Keeping sudo alive..."
+
 echo "\
 *********************************************
 Brewing NAV taps
