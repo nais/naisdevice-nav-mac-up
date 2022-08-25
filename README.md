@@ -2,7 +2,7 @@
 
 Should preferably be run on a clean system.
 
-![]([./naisdevice up.app/Contents/Resources/naisdevice-up.png](https://github.com/nais/naisdevice-nav-mac-up/blob/main/naisdevice%20up.app/Contents/Resources/naisdevice-up.png))
+![](https://github.com/nais/naisdevice-nav-mac-up/blob/main/naisdevice%20up.app/Contents/Resources/naisdevice-up.png)
 
 
 ### Usage: 
