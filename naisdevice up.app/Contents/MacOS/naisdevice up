@@ -1,13 +1,14 @@
 #!/bin/bash
 # shellcheck disable=SC2154
 # shellcheck disable=SC1111
-# Include pashua.sh to be able to use the 2 functions defined in that file
-
+       
 cd "$(dirname "$0")" || exit
 
 exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
 
-source user-choices.sh
+source scaffolding/connectivity.sh
+
+source scaffolding/user-choices.sh
 
 #if [[ "$repo" = "1" ]]; then
 #    source get-repo-url.sh
@@ -18,7 +19,8 @@ source user-choices.sh
 
 # Check if user has some taps of their own
 if [[ "$brew" = "1" ]]; then
-    source taps.sh
+
+    source scaffolding/taps.sh
     if [[ "$cb" = "1" ]]; then
         exit 0
     fi

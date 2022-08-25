@@ -3,6 +3,7 @@
 # shellcheck disable=SC2016
 # shellcheck disable=SC2162
 
+source vars 
 
 
 if ! brew -v &> /dev/null
@@ -31,10 +32,11 @@ taps=(naisdevice slack zoom)
 for t in "${taps[@]}"; do
 	echo "## Brewing $t"
 	/opt/homebrew/bin/brew install "$t"
-	wait
 done
 
-if [[ "${personaltaps}" != "" ]]; then
+personaltaps=$(cat taps)
+
+if [[ "$personaltaps" != "" ]]; then
 	echo "Brewing personal taps"
 
 	for t in "${personaltaps[@]}"; do

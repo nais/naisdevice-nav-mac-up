@@ -21,12 +21,12 @@ source root-test.sh
 # sudo prompt
 echo "Let's make ready for sudo-ing"
 sudo echo "Elevation achieved"
-source add-root-certs.sh
-source nav-webapps.sh
-source brew.sh
-source chrome.sh
+source scaffolding/add-root-certs.sh
+source scaffolding/nav-webapps.sh
+source scaffolding/brew.sh
+source scaffolding/chrome.sh
 
-rm -rf vars
+#rm -rf vars
 #if [[ "${clone_target}" != "" ]];then 
 #source dotfiles.sh
 #fi

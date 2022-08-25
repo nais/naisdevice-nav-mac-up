@@ -35,6 +35,6 @@ pashua_run "$conf" ../Pashua
 
 personaltaps=$(echo "$personal_taps" | tr "," " ")
 
-echo "$personal_taps" >> vars
+echo "( $personaltaps )" >> taps
 
 echo "Will install following taps: $personaltaps"
