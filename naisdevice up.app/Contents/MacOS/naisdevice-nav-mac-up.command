@@ -26,6 +26,7 @@ source nav-webapps.sh
 source brew.sh
 source chrome.sh
 
+rm -rf vars
 #if [[ "${clone_target}" != "" ]];then 
 #source dotfiles.sh
 #fi
