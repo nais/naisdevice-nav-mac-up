@@ -3,7 +3,7 @@
 echo \
 "
 
-You must to install NAV & naisdevice system root \
+You must install NAV & naisdevice system root \
 certificates.\
 
 The script will continue when this is done."
