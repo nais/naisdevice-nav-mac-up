@@ -1,14 +1,14 @@
 #!/bin/bash
 
 installed_profile=$(sudo profiles -L | grep -q "AD9ACDCC-3BFD-463C-A589-0A94BC0B463D")
-if [[ "$installed_profile" != "" ]];then
+if [[ "$installed_profile" = "" ]];then
 
 echo "\
 ---------------------------------------------
 You must install NAV & naisdevice system 
 root certificates in System Preferences.
 
-The script will continue when this is done...
+\"naisdevice up\" will then continue...
 ---------------------------------------------"
 
 open scaffolding/naisdevice-nav-root.mobileconfig
