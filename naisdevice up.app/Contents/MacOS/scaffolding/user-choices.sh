@@ -1,6 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC2154
 # shellcheck disable=SC1091
+# shellcheck disable=SC1111
 
 source pashua.sh
 
