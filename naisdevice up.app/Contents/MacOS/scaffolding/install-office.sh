@@ -6,7 +6,7 @@ if test -f mspkgs; then
 
     echo "\
 ---------------------------------------------
-Fetching & installin Office choices
+Fetching & installing Office choices
 ---------------------------------------------"
 
     curl -sO https://macadmins.software/latest.xml

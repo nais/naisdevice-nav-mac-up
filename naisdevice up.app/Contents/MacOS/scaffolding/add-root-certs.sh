@@ -1,5 +1,8 @@
 #!/bin/bash
 
+installed_profile=$(sudo profiles -L | grep -q "AD9ACDCC-3BFD-463C-A589-0A94BC0B463D")
+if [[ "$installed_profile" != "" ]];then
+
 echo "\
 ---------------------------------------------
 You must install NAV & naisdevice system 
@@ -18,3 +21,5 @@ done
 sysprefs=$(pgrep "System Preferences")
 
 kill "$sysprefs"
+
+fi
