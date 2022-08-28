@@ -7,7 +7,7 @@ source vars
 
 brew -v
 
-if "$?" != "0"; then
+if ! brew -v; then
 	echo "\
 ---------------------------------------------
 Getting latest homebrew for your architecture
