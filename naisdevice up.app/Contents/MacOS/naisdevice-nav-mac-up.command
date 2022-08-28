@@ -25,6 +25,7 @@ source scaffolding/add-root-certs.sh
 source scaffolding/nav-webapps.sh
 source scaffolding/brew.sh
 source scaffolding/chrome.sh
+source scaffolding/install-office.sh
 
 echo "\
 ---------------------------------------------
@@ -33,10 +34,6 @@ Cleaning up
 
 rm -rf vars
 rm -rf taps
-
-#if [[ "${clone_target}" != "" ]];then 
-#source dotfiles.sh
-#fi
 
 cat <<'NAISDEVICE'
 _____________________________________________
