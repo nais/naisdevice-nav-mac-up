@@ -26,4 +26,12 @@ if [[ "$brew" = "1" ]]; then
     fi
 fi
 
+if [[ "$msoffice" = "1" ]]; then
+
+    source scaffolding/office-choices.sh
+    if [[ "$cb" = "1" ]]; then
+        exit 0
+    fi
+fi
+
 open naisdevice-nav-mac-up.command

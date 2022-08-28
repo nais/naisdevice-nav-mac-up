@@ -2,9 +2,8 @@
 # shellcheck disable=SC2154
 # shellcheck disable=SC2016
 # shellcheck disable=SC2162
-
+# shellcheck disable=SC1091
 source vars 
-
 
 if ! brew -v &> /dev/null
 then
@@ -51,7 +50,6 @@ defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</
 defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Zoom.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/naisdevice.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 
-
 source taps
 
 if [[ "$personaltaps" != "" ]]; then
@@ -59,7 +57,6 @@ echo "\
 ---------------------------------------------
 Brewing personal taps
 ---------------------------------------------"
-
 for t in "${personaltaps[@]}"; do
 echo "\
 ---------------------------------------------

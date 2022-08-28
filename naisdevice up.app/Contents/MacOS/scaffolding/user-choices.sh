@@ -13,7 +13,7 @@ txt.default = \"naisdevice up\" is a simple utility to get you started setting u
 txt.height = 276
 txt.width = 310
 txt.x = 0
-txt.y = 180
+txt.y = 200
 
 # User choices
 homebrew.type = checkbox
@@ -44,6 +44,12 @@ brew.label = Add Brew taps
 brew.rely = -10
 brew.default = 0
 
+msoffice.type = checkbox
+msoffice.label = MS Office Stuff
+msoffice.default = 0
+msoffice.disabled = 0
+msoffice.rely = -10
+
 db.type = defaultbutton
 db.label = Lets' go!
 
@@ -54,7 +60,7 @@ cb.label = Cancel
 conf="$conf
           img.type = image
           img.x = 90
-          img.y = 300
+          img.y = 330
           img.maxwidth = 100
           img.tooltip = This is an element of type “image”
           img.path = ../Resources/naisdevice-up.png"
@@ -67,6 +73,7 @@ fi
 
 echo brew="$brew" > vars
 echo chrome_install="$chrome_install" >> vars
+
 #echo repo="$repo" >> vars
 
 ## TODO: Maybe? Add "clone some repo"

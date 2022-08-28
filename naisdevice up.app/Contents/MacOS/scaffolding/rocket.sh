@@ -1,5 +1,5 @@
 #!/bin/bash
-   cat <<'NOROOT'
+   cat <<'ROCKET'
 
                            *     .--.
                                 / /  `
@@ -20,4 +20,4 @@
             nais _..--"""````"""--.._
            _.-'``                    ``'-._
          -'                                '-
-NOROOT
+ROCKET

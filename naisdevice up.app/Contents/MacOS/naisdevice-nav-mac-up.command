@@ -11,12 +11,12 @@ source scaffolding/rocket.sh
 
 # sudo prompt
 echo "\
-*********************************************
+---------------------------------------------
 Let's make ready for sudo-ing
 ---------------------------------------------"
 
 sudo echo "\
-*********************************************
+---------------------------------------------
 Elevation achieved
 ---------------------------------------------"
 afplay ../Resources/elevator.mp3 &
@@ -25,18 +25,15 @@ source scaffolding/add-root-certs.sh
 source scaffolding/nav-webapps.sh
 source scaffolding/brew.sh
 source scaffolding/chrome.sh
+source scaffolding/install-office.sh
 
 echo "\
-*********************************************
+---------------------------------------------
 Cleaning up
 ---------------------------------------------"
 
 rm -rf vars
 rm -rf taps
-
-#if [[ "${clone_target}" != "" ]];then 
-#source dotfiles.sh
-#fi
 
 cat <<'NAISDEVICE'
 _____________________________________________
@@ -45,7 +42,7 @@ _____________________________________________
 |   |,---||`---.|   ||---' \  / ||    |---'
 `   '`---^``---'`---'`---'  `'  ``---'`---'
 ---------------------------------------------
----------------------------------------------"
+---------------------------------------------
 NAISDEVICE
 
 kill "$killmusic"
