@@ -4,7 +4,7 @@
        
 cd "$(dirname "$0")" || exit
 
-exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
+exec &> >(tee -a "$HOME"/Library/Logs/naisdevice-nav-mac-up.log)
 
 source scaffolding/connectivity.sh
 

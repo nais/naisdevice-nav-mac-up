@@ -12,6 +12,7 @@ if ! brew -v; then
 ---------------------------------------------
 Getting latest homebrew for your architecture
 ---------------------------------------------"
+	
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	# check platform and add Brew to user PATH (Assuming default macOS `zsh`)
@@ -23,6 +24,9 @@ Getting latest homebrew for your architecture
 		eval "$(/usr/local/bin/brew shellenv)"
 	fi
 fi
+# Add dock icons later. Must give sytem index time to realize the apps exist.
+	add_to_dock=1
+
 sudo echo "\
 ---------------------------------------------
 sudo alive - a - a - a - a - sudo alive 
@@ -35,7 +39,7 @@ Brewing NAV taps
 
 brew tap nais/tap
 
-taps=(naisdevice slack zoom)
+taps=(naisdevice slack zoom kubectx jq yk google-cloud-sdk gh kubectl kubectx google-cloud-sdk)
 for t in "${taps[@]}"; do
 	echo "\
 ---------------------------------------------
@@ -71,11 +75,6 @@ If they do not appear you can find them via
 your /Applications directory or Launchpad
 ---------------------------------------------"
 
-defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Slack.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Zoom.us.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/naisdevice.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-killall Dock
-
 else
 
 	echo "\
@@ -83,4 +82,11 @@ else
 Skipping personal brewing...
 ---------------------------------------------"
 
+fi
+
+if [[ "$add_to_dock" = "1" ]];then
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Slack.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Zoom.us.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/naisdevice.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+killall Dock
 fi
