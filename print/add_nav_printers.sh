@@ -1,17 +1,35 @@
 #!/bin/bash
 
-curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/main/print/X950_Series_Print_Scan.pkg \
-  --output X950_Series_Print_Scan.pkg
+echo \"This script will now download a generic lexmark driver
+- requires rosetta c
 
-sudo /usr/sbin/installer -pkg X950_Series_Print_Scan.pkg -target /
+cat <<EOF
+This script will now download a generic lexmark driver
+and add the NAV printer to CUPS.
+This requires Rosetta2 so the installer might fail.
+Rosetta2 can be installed on the command line like so:
+$(/usr/sbin/softwareupdate --install-rosetta --agree-to-license)
+You will be prompted for your sudo/admin password
+EOF
 
-sudo /usr/sbin/lpadmin -E -p "NAV_SikkerPrint" \
-  -v "smb://10.88.0.21/FargeDuplex%20IKSS" \
-  -P "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd" \
-  -o printer-is-shared=false \
-  -o APOptionalDuplexer=True
+read -p "Do you wish to proceed? " -n 1 -r
+echo # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]; then
 
-sudo /usr/sbin/cupsenable "NAV_SikkerPrint"
-sudo /usr/sbin/cupsaccept "NAV_SikkerPrint"
+  curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/main/print/X950_Series_Print_Scan.pkg \
+    --output X950_Series_Print_Scan.pkg
 
+  sudo /usr/sbin/installer -pkg X950_Series_Print_Scan.pkg -target /
+
+  sudo /usr/sbin/lpadmin -E -p "NAV_SikkerPrint" \
+    -v "smb://10.88.0.21/FargeDuplex%20IKSS" \
+    -P "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd" \
+    -o printer-is-shared=false \
+    -o APOptionalDuplexer=True
+
+  sudo /usr/sbin/cupsenable "NAV_SikkerPrint"
+  sudo /usr/sbin/cupsaccept "NAV_SikkerPrint"
+else
+  exit 1
+fi
 exit 0
