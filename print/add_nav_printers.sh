@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo \"This script will now download a generic lexmark driver
-- requires rosetta c
-
 cat <<EOF
 This script will now download a generic lexmark driver
 and add the NAV printer to CUPS.
