@@ -38,7 +38,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   case "${kernel_name}" in
     Linux*)
       echo "Downloading Lexmark X950 series PPD"
-      curl -L "https://www.openprinting.org/ppd-o-matic.php?driver=Postscript-Lexmark&printer=Lexmark-X950&show=0" \
+      curl -L "https://www.openprinting.org/download/PPD/Lexmark/Lexmark_X950_Series.ppd" \
         -o postscript-lexmark-x950.ppd
       sudo mkdir -p /usr/local/share/ppd/
       sudo mv postscript-lexmark-x950.ppd /usr/local/share/ppd/
