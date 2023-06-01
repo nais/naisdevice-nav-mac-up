@@ -65,10 +65,18 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     -v "smb://10.88.0.21/FargeDuplex%20IKSS" \
     -P "${ppd_path}" \
     -o printer-is-shared=false \
-    -o APOptionalDuplexer=True
+    -o APOptionalDuplexer=True \
+    -o auth-info-required=username,password
 
   sudo /usr/sbin/cupsenable "NAV_SikkerPrint"
   sudo /usr/sbin/cupsaccept "NAV_SikkerPrint"
+
+  case "${kernel_name}" in
+    Linux*)
+      echo "Restarting cups service"
+      sudo systemctl restart cups
+      ;;
+  esac
 
   echo "# Done!"
   echo "# Oh, BTW - Remember - rainforest.."
