@@ -39,7 +39,7 @@ Brewing NAV taps
 
 brew tap nais/tap
 
-taps=(naisdevice slack zoom kubectx jq yk google-cloud-sdk gh kubectl kubectx google-cloud-sdk)
+taps=(naisdevice slack zoom kubectx jq yq google-cloud-sdk gh kubectl kubectx google-cloud-sdk)
 for t in "${taps[@]}"; do
 	echo "\
 ---------------------------------------------
