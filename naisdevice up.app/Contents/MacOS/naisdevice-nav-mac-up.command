@@ -4,7 +4,8 @@ cd "$(dirname "$0")"|| exit
 
 exec &> >(tee -a ~/Library/Logs/naisdevice-nav-mac-up.log)
 
-source vars
+
+source scaffolding/vars
 
 source scaffolding/root-test.sh
 source scaffolding/rocket.sh

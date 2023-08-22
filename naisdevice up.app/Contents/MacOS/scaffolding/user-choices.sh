@@ -72,7 +72,7 @@ if [[ "$cb" = "1" ]]; then
     exit 0
 fi
 
-echo brew="$brew" > vars
+echo brew="$brew" >> vars
 echo chrome_install="$chrome_install" >> vars
 
 #echo repo="$repo" >> vars
