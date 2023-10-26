@@ -45,7 +45,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     ppd_path=/usr/local/share/ppd/postscript-lexmark-x950.ppd
     ;;
   Darwin*)
-    curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/main/print/X950_Series_Print_Scan.pkg \
+    curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/main/X950_Series_Print_Scan.pkg \
       -o X950_Series_Print_Scan.pkg
 
     echo "Run Lexmark installer."
