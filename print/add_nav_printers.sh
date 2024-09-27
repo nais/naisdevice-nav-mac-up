@@ -11,14 +11,6 @@ Linux*)
       'sudo apt install smbclient'
     "
   ;;
-Darwin*)
-  warning="
-      This requires Rosetta2 so the installer might fail.
-      Rosetta2 can be installed on the command line like so:
-
-      '/usr/sbin/softwareupdate --install-rosetta --agree-to-license'
-      "
-  ;;
 esac
 
 cat <<EOF
@@ -45,14 +37,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     ppd_path=/usr/local/share/ppd/postscript-lexmark-x950.ppd
     ;;
   Darwin*)
-    curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/main/X950_Series_Print_Scan.pkg \
-      -o X950_Series_Print_Scan.pkg
+    curl -L https://raw.githubusercontent.com/nais/naisdevice-nav-mac-up/Universal_Color_Print.pkg \
+      -o Universal_Color_Print.pkg
 
     echo "Run Lexmark installer."
-    sudo /usr/sbin/installer -pkg X950_Series_Print_Scan.pkg -target /
+    sudo /usr/sbin/installer -pkg Universal_Color_Print.pkg -target /
     ppd_path="/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd"
     echo "Cleaning up installer."
-    rm -rf X950_Series_Print_Scan.pkg
+    rm -rf Universal_Color_Print.pkg
     ;;
   *)
     echo "Unsupported platform: ${kernel_name}"
