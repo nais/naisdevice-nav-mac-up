@@ -1,5 +1,7 @@
 # naisdevice up
 
+> Flyttet til navikt/ny-i-nav
+
 Should preferably be run on a clean system.
 
 ![](https://github.com/nais/naisdevice-nav-mac-up/blob/main/naisdevice%20up.app/Contents/Resources/naisdevice-up.png)
